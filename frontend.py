@@ -19,6 +19,29 @@ The outline of this frontend includes these sections:
 import pandas as pd
 import streamlit as st
 
+# Sidebar Page Navigation
+with st.sidebar:
+    st.title("Page Navigation")
+    st.markdown(
+        """
+        [Credit Card Fraud Classification Project](#credit-card-fraud-classification-project)
+
+        [What is this?](#what-is-this)
+
+        [Mission statement + problem introduction](#mission-statement-problem-introduction)
+
+        [Our data with strengths + weaknesses](#our-data-with-strengths-weaknesses)
+
+        [Our choice of models + design decisions](#our-choice-of-models-design-decisions)
+
+        [Our performance metrics](#our-performance-metrics)
+
+        [Our reflections](#our-reflections)
+
+        [Bibliography](#bibliography)
+        """
+    )
+
 st.set_page_config(
     page_title="OSU AI F25 Credit Card Fraud Project",
     page_icon=":robot:",
@@ -41,9 +64,10 @@ st.write(
     """
     ## What is this?
     This is a presentation (powered by streamlit) of our credit card 
-    fraud ML project for OSU's AI Club Project Workshop Fall 2025.
+    fraud ML project for [OSU's AI Club Project Workshop Fall 2025](https://www.osu-ai.club/project-workshop/).
 
-    The Project Workshop hosted by the AI Club at OSU was a way for us
+    The Project Workshop hosted by the [AI Club at OSU](https://www.osu-ai.club/) 
+    was a way for us
     to get our feet wet with the ML model life cycle. Thus, we aimed
     to build a beginner-friendly ML portfolio project from conception 
     to deployment. This includes: collecting data, data-preprocessing, 
@@ -53,13 +77,17 @@ st.write(
     We aim to share our own discoveries throughout, as well as
     any questions for further inquiry!
 
-    Made by Chris and Allie
-
-    <place links here>
+    **Authors: Undergraduate OSU CS students, Chris and Allie**
     """
 )
 
-st.space()
+# <place links here>
+
+st.page_link(
+    page="https://github.com/cknell47/ccfd",
+    label="Project Repository",
+    help="https://github.com/cknell47/ccfd",
+)
 
 st.write(
     """
@@ -95,7 +123,7 @@ st.write(
     actual fraud prevention with customer friction."**
 
     **Illustrative example**: It's one thing if someone doesn't get 
-    their Starbucks coffee one morning, but we want to avoid the case
+    their Starbucks coffee one morning. However, we want to avoid the case
     of a parent with a family of four is stuck at a Walmart 
     self-checkout because an ML model makes a wrong decision over 
     groceries being bought with a slightly higher transaction due to 
@@ -103,7 +131,7 @@ st.write(
 
     Therefore, we believe this story illustrates a need for emphasis on
     a minimization of false-positives and false-negatives to minimize
-    user friction. Essentially, optimized performance.
+    user friction. Essentially, optimized model performance!
     """
 )
 
@@ -114,13 +142,13 @@ st.write(
     ## Our data with strengths + weaknesses
 
     We decided between a few datasets when deciding how to source
-    data for this project. Not all of them were great, including the
-    one we settled on. We picked the dataset that balanced
+    data for this project. Not all of them were great, *including the
+    one we settled on*. We made the final decision by balancing
     accessibility (including legal use), with applicability to
     our problem.
 
     The exact details of our choice and how we evaluated alternatives
-    is in the README.md of the project <here>.
+    is in the README.md of the project [here](https://github.com/cknell47/ccfd).
 
     We eventually selected <this dataset> hosted by Kaggle. The data's
     story is this:
