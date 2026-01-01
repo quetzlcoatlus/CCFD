@@ -1,4 +1,5 @@
-"""Frontend for the Credit Card Fraud ML Project
+"""
+Frontend for the Credit Card Fraud ML Project
 
 Made in 2025 by Chris and Allie using Streamlit!
 
@@ -150,8 +151,8 @@ st.write(
     The exact details of our choice and how we evaluated alternatives
     is in the README.md of the project [here](https://github.com/cknell47/ccfd).
 
-    We eventually selected <this dataset> hosted by Kaggle. The data's
-    story is this:
+    We eventually selected [this dataset](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud) 
+    hosted by Kaggle. The data's story is this:
 
     In September 2013, transactions over two days by European card
     holders were measured and recorded. There were 284,807 transactions
@@ -242,5 +243,8 @@ st.write(
     ## Bibliography
 
     <place information here>
+
+    Kaggle dataset: [link]()
+
     """
 )
