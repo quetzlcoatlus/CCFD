@@ -72,7 +72,7 @@ st.write(
     to get our feet wet with the ML model life cycle. Thus, we aimed
     to build a beginner-friendly ML portfolio project from conception 
     to deployment. This includes: collecting data, data-preprocessing, 
-    model training, hyperparameter tuning, performance measurments,
+    model training, hyperparameter tuning, performance measurements,
     and some form of project hosting for our portfolios.
 
     We aim to share our own discoveries throughout, as well as
@@ -195,10 +195,17 @@ st.write(
     """
     Here is the raw data as a dataframe of the Kaggle dataset.
     
-    <This is the source link.> It has distributions and other info
+    It has distributions and other info
     we elected to leave out from this presentation.
-"""
+    """
 )
+
+st.page_link(
+    page="https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud",
+    label="Kaggle Credit Card Fraud Dataset",
+    help="https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud",
+)
+
 st.space()
 st.write(df)
 
@@ -215,25 +222,128 @@ st.write(
     Classifier, which was selected because supposedly it is good
     for tabular data (which we have).
 
+    We divied the work on each model to each of us, Allie taking SGDClassifier
+    and Chris taking the RandomForestClassifier.
+
     <place information here>
+
+    ### SGD Classifier decisions
+
+    I'll be organizing my design decisions for the ultimate SGDClassifier performance
+    with the phases mentioned in the introduction: data-preprocessing, model training, and hyperparameter
+    tuning.
+
+    #### Data-preprocessing
+
+    Based on the club presentations and from research online, I tried to use Standard scaling via Scikit-learn
+    on our data to improve the model performance. This ended up having a small performance boost in True Positive fraud cases.
+
+    I also tried to use upsampling of the minority class (in this case, the fraud cases) to match the majority class. This seemed
+    to decrease performance however, as well as significantly increased training time, so I dropped the strategy.
+    
+    #### Model training
+
+    From the result of Y-data profiling, it was found that specific features like V10-12, V14, V16-18 were "highly correlated"
+    with the "Class" feature. I took that to imply that those were the most significant features, and in my experience it seemed like
+    selecting those specific features (excluding others) increased performance slightly.
+
+    To train the model and prevent data leakage, I did a train-test split of 80-20. This seemed like a reasonable choice, but FWIW I never tried
+    weighting the values differently and comparing performance. 
+
+    I think it is important, especially in an unbalanced dataset like ours,
+    to use the stratify parameter in the train_test_split() function. I stratified based on the "Class" feature so that the train
+    and test sets both had a fair proportion of fraud and non-fraud cases. This avoids the case where the train or test set has way more fraud
+    cases than the other set, skewing the performance metrics.
+
+    #### Hyperparameter tuning
+
+    Based on some GridSearchCV results in a prior experiment on the model and dataset, I decided to choose loss='square_hinge' and penalty='l1'.
+    This slightly improved performance.
+    
+    Admittedly, there wasn't much going into this decision, aside from the fact that testing parameters other than "penalty" and "loss" was leading
+    to some errors like "eta0 < 0" for the model. This was potentially caused by changes in the "learning_rate" parameter, but I never figured out how
+    to resolve the issue other than keep the default learning rate.
+
+    The specific details of that can be found in the SGDClassifier notebook in the repository under "Hyperparameter Tuning".
     """
 )
+
+# ===
 
 # 5. Performance metrics
 st.write(
     """
     ## Our performance metrics
 
+    Finally, moving onto our metrics. We decided on a few general metrics based on the club presentations
+    and our own research into what would be reasonable for our problem statement. Especially considering our
+    priority on minimizing false positives and negatives, we figured a confusion matrix and AUPRC was reasonable.
+    Also the use of cross-validation seemed valuable generally across projects to protect against specific data point
+    overfitting etc.
+    
     <place information here>
     """
 )
+
+st.write(
+    """
+    ### SGDClassifier Metrics
+    """
+)
+
+st.write(
+    """
+    #### Classification Report and Confusion Matrix
+    """
+)
+
+st.image(
+    "./data/SGDClass-Images/class-report-and-confusion-matrix.png", width="stretch"
+)
+
+st.write(
+    """
+    #### Cross Validation
+    """
+)
+
+st.image("./data/SGDClass-Images/cross-validation.png", width="stretch")
+
+st.write(
+    """
+    #### PRC Curve
+    """
+)
+
+st.image("./data/SGDClass-Images/auprc.png", width="stretch")
+
+# ===
 
 # 6. Reflections
 st.write(
     """
     ## Our reflections
 
-    <place information here>
+    ### Allie's reflections
+
+    Given that this was a first project ever working with ML models directly, this was challenging!
+    Especially juggling the project with school and other obligations. I wanted to thank my partner
+    Chris on this project for making it socially fulfilling as well as for fueling the educational
+    back and forth we had describing why and how about certain parts of the architecture in the project.
+
+    In terms of the future considerations, I think for another project I'd probably use a dataset where
+    none of the features are anonymized. That significantly limited the scope of the project (especially in deployment) but in many ways
+    that was helpful for keeping scope creep manageable. Potentially, like limiting an artist's palette to reduce
+    overwhelm. As a result, we got to focus on how and why we do each step in the process of dataset selection,
+    data preprocessing + exploration, hyperparameter tuning, model training and selection, strategies for working around data leakage,
+    and how to measure performance accounting for potential overfitting (among others).
+
+    Overall, I'm relatively proud of this project. I want to thank the OSU AI club for their
+    significant help and structure for learning about the fundamental process of training an ML
+    model. The tutorials and presentations were very helpful with direction and I'm looking forward
+    to Winter term! I learned a lot about what not to do especially. Getting through this first
+    project feedback cycle is always extremely challenging for me and I'm excited for the potential
+    in the next one :).
     """
 )
 
@@ -242,9 +352,22 @@ st.write(
     """
     ## Bibliography
 
-    <place information here>
+    ### Placing significant resources in our development of the project here
 
-    Kaggle dataset: [link]()
+    Kaggle dataset: [Kaggle](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud)
+    
+    OSU AI Website (slides, tutorials, project guidance): [OSU-AI](https://www.osu-ai.club/)
 
+    Handling imbalanced datasets: [GeeksforGeeks](https://www.geeksforgeeks.org/machine-learning/handling-imbalanced-data-for-classification/)
+
+    AUPRC Resource and implementation: [StackOverflow](https://stackoverflow.com/questions/71934403/how-to-get-the-area-under-precision-recall-curve)
+
+    Scikit-learn estimator flow chart we used for SGDClassifier: [Scikit-learn documentation](https://scikit-learn.org/stable/machine_learning_map.html)
+
+    Resource for implementation of RandomForestClassifier and SGDClassifier:
+    RandomForestClassifier: [YouTube](https://www.youtube.com/watch?v=AZNrn9ihZkw)
+    SGDClassifier: [YouTube](https://www.youtube.com/watch?v=UWe_oF2lh9g)
+
+    Understanding git merging vs rebasing after a significant version history error: [Atlassian](https://www.atlassian.com/git/tutorials/merging-vs-rebasing)
     """
 )
