@@ -147,9 +147,6 @@ st.write(
     accessibility (including legal use), with applicability to
     our problem.
 
-    The exact details of our choice and how we evaluated alternatives
-    is in the README.md of the project [here](https://github.com/cknell47/ccfd).
-
     We eventually selected [this dataset](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud) 
     hosted by Kaggle. The data's story is this:
 
