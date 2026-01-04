@@ -377,9 +377,30 @@ st.write(
     Scikit-learn estimator flow chart we used for SGDClassifier: [Scikit-learn documentation](https://scikit-learn.org/stable/machine_learning_map.html)
 
     Resource for implementation of RandomForestClassifier and SGDClassifier:
+
     RandomForestClassifier: [YouTube](https://www.youtube.com/watch?v=AZNrn9ihZkw)
     SGDClassifier: [YouTube](https://www.youtube.com/watch?v=UWe_oF2lh9g)
 
     Understanding git merging vs rebasing after a significant version history error: [Atlassian](https://www.atlassian.com/git/tutorials/merging-vs-rebasing)
+
+    #### Resources used for RandomForest.ipynb
+
+    Largely, these are code snippets and video tutorials that Chris used for the RandomForestClassifier pipeline.
+
+    [Kaggle Code Snippet for Confusion Matrix](https://www.kaggle.com/code/bernabas/random-forest-with-confusion-matrix)
+
+    Web search Brave AI Conversations
+
+    [How to remove nan errors in Python](https://search.brave.com/search?q=how+to+remove+nan+errors+in+python&summary=1&conversation=a53893a5a843463cc415f5)
+
+    [Cross Validation Mean Scores](https://search.brave.com/search?q=how+to+get+cross+validation+and+mean+scores+for+random+forest+classifier&summary=1&conversation=8946dd8b8577727f04c60f)
+
+    YouTube video
+
+    [Random Forest GridSearchCV](https://www.youtube.com/watch?v=c4mS7KaOIGY)
+
+    Google AI Conversation
+
+    [Python AUPRC](https://www.google.com/search?q=python+auprc&rlz=1C1ONGR_enUS988US988&oq=python+auprc&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIICAEQABgWGB4yBwgCEAAY7wUyBwgDEAAY7wUyCggEEAAYgAQYogTSAQgzNDQ4ajBqN6gCALACAA&sourceid=chrome&ie=UTF-8)
     """
 )
