@@ -176,8 +176,6 @@ st.write(
     We wrote off any potential use of this in real-world, but we
     felt that was okay because this is mainly a learning project.
 
-    <place information here>
-
     ### Interpretations of Y-Data Profiling on dataset
 
     I believe it is worth mentioning here we used the module Y-Data
@@ -224,8 +222,6 @@ st.write(
 
     We divied the work on each model to each of us, Allie taking SGDClassifier
     and Chris taking the RandomForestClassifier.
-
-    <place information here>
 
     ### SGD Classifier decisions
 
@@ -281,19 +277,15 @@ st.write(
     Also the use of cross-validation seemed valuable generally across projects to protect against specific data point
     overfitting etc.
     
-    <place information here>
+    The reason for any number discrepancy is because for SGDClassifier we dropped duplicates and didn't for RandomForestClassifier.
+
+    The format is SGDClassifier first, then RandomForest beneath it.
     """
 )
 
 st.write(
     """
-    ### SGDClassifier Metrics
-    """
-)
-
-st.write(
-    """
-    #### Classification Report and Confusion Matrix
+    ### Classification Report and Confusion Matrix
     """
 )
 
@@ -301,21 +293,48 @@ st.image(
     "./data/SGDClass-Images/class-report-and-confusion-matrix.png", width="stretch"
 )
 
+st.image("./data/RandomForest-Images/classification-report.png", width="stretch")
+
+
+st.image("./data/RandomForest-Images/confusion-matrix.png", width="stretch")
+
 st.write(
     """
-    #### Cross Validation
+    ### Seaborn Confusion Matrix Heatmap
+    """
+)
+
+st.image("./data/SGDClass-Images/sgd-seaborn.png", width="stretch")
+
+st.image("./data/RandomForest-Images/heatmap.png", width="stretch")
+
+st.write(
+    """
+    ### Cross Validation
     """
 )
 
 st.image("./data/SGDClass-Images/cross-validation.png", width="stretch")
 
+# st.image("./data/RandomForest-Images/", width="stretch")
+
 st.write(
     """
-    #### PRC Curve
+    ### PRC Curve
     """
 )
 
 st.image("./data/SGDClass-Images/auprc.png", width="stretch")
+
+st.image("./data/RandomForest-Images/auprc.png", width="stretch")
+
+st.write(
+    """
+    SGDClassifier Area under PRC curve = 0.7333745190569216
+
+    RandomForestClassifier Area under PRC curve = 0.8751277004172419
+    """
+)
 
 # ===
 
@@ -324,12 +343,13 @@ st.write(
     """
     ## Our reflections
 
-    ### Allie's reflections
+    It seems like RandomForestClassifier was able to perform better on the dataset generally with
+    less false negatives and positives and a higher AUPRC.
 
     Given that this was a first project ever working with ML models directly, this was challenging!
     Especially juggling the project with school and other obligations. I wanted to thank my partner
     Chris on this project for making it socially fulfilling as well as for fueling the educational
-    back and forth we had describing why and how about certain parts of the architecture in the project.
+    dialectic we had describing why and how for certain parts of the architecture in the project.
 
     In terms of the future considerations, I think for another project I'd probably use a dataset where
     none of the features are anonymized. That significantly limited the scope of the project (especially in deployment) but in many ways
