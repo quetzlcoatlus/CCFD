@@ -213,7 +213,7 @@ st.write(
     for tabular data (which we have).
 
     We divied the work on each model to each of us, Allie taking SGDClassifier
-    and Chris taking the RandomForestClassifier.
+    and Chris taking the RandomForestClassifier. Allie ended up writing the SGDClassifier decisions only.
 
     ### SGD Classifier decisions
 
@@ -308,7 +308,7 @@ st.write(
 
 st.image("./data/SGDClass-Images/cross-validation.png", width="stretch")
 
-# st.image("./data/RandomForest-Images/", width="stretch")
+st.image("./data/RandomForest-Images/cross-validation.png", width="stretch")
 
 st.write(
     """
