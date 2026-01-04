@@ -1,0 +1,7 @@
+.ipynb_checkpoints/
+.python-version
+ccfd-2023-ds.zip
+creditcard.csv
+data/dupes_dropped_creditcard.csv
+.idea
+__pycache__/
