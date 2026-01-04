@@ -137,7 +137,6 @@ st.write(
 )
 
 # 3. Our data + its limitations and strengths
-df = pd.read_csv("./data/creditcard.csv")
 st.write(
     """
     ## Our data with strengths + weaknesses
@@ -187,14 +186,10 @@ st.write(
     """
 )
 
-st.divider()
-
 st.write(
     """
-    Here is the raw data as a dataframe of the Kaggle dataset.
-    
-    It has distributions and other info
-    we elected to leave out from this presentation.
+    Here is the link for the raw data of the Kaggle dataset. It has distributions and other info
+    we elected to leave out from this presentation since the file is too large on GitHub.
     """
 )
 
@@ -203,9 +198,6 @@ st.page_link(
     label="Kaggle Credit Card Fraud Dataset",
     help="https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud",
 )
-
-st.space()
-st.write(df)
 
 # 4. Our choice of model + design decisions
 st.write(
